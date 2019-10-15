@@ -18,7 +18,14 @@ export default new Router({
     {
       path: '/life',
       name: 'life',
-      component: () => import('./views/Life/Life.vue')
+      component: () => import('./views/Life/Life.vue'),
+      children: [
+        {
+          path: ":id",
+          name: "news-details",
+          component: () => import('./views/Life/components/LifeDetails.vue'),
+        }
+      ]
     },
     {
       path: '/product',
@@ -28,7 +35,14 @@ export default new Router({
     {
       path: '/news',
       name: 'news',
-      component: () => import('./views/News/News.vue')
+      component: () => import('./views/News/News.vue'),
+      children: [
+        {
+          path: ":id",
+          name: "news-details",
+          component: () => import('./views/News/components/NewsDetails.vue'),
+        }
+      ]
     },
     {
       path: '/about',

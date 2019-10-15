@@ -63,6 +63,7 @@ export default {
 
 <style lang="less" scope>
 #app {
+  min-width: 1440px;
   font-size: 0.16rem;
   > #nav {
     height: 1rem;
