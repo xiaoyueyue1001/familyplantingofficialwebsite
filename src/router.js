@@ -22,7 +22,7 @@ export default new Router({
       children: [
         {
           path: ":id",
-          name: "news-details",
+          name: "life-details",
           component: () => import('./views/Life/components/LifeDetails.vue'),
         }
       ]
