@@ -29,7 +29,42 @@
         </el-carousel>
       </div>
     </div>
-    <div class="row5"></div>
+    <div class="row5">
+      <img style="width:100%;height:100%" src="../../assets/u86.png" alt />
+    </div>
+    <div class="row6">
+      <h3>种植资讯</h3>
+      <p>绿色种植与现代科技完美结合，打造室内园艺智能种植一站式解决方案</p>
+      <div class="text-wrap">
+        <div class="item">
+          <img src="../../assets/u7.svg" alt />
+          <div class="text">
+            <p>室内植物如何护理，是全世界都关心的问题！</p>
+          </div>
+        </div>
+        <div class="item">
+          <img src="../../assets/u7.svg" alt />
+          <div class="text">
+            <p>室内植物如何护理，是全世界都关心的问题！</p>
+          </div>
+        </div>
+        <div class="item">
+          <img src="../../assets/u7.svg" alt />
+          <div class="text">
+            <p>室内植物如何护理，是全世界都关心的问题！</p>
+          </div>
+        </div>
+        <div class="item">
+          <img src="../../assets/u7.svg" alt />
+          <div class="text">
+            <p>室内植物如何护理，是全世界都关心的问题！</p>
+          </div>
+        </div>
+      </div>
+      <div class="more">
+        <router-link to="/home/news">更多</router-link>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -89,6 +124,50 @@ export default {};
   }
   > .row5 {
     height: 8rem;
+  }
+  > .row6 {
+    > h3 {
+      height: 1rem;
+      line-height: 1rem;
+      text-align: center;
+      font-size: 0.3rem;
+      color: green;
+    }
+    > p {
+      height: 0.5rem;
+      line-height: 0.5rem;
+      text-align: center;
+      font-size: 0.2rem;
+    }
+    > .text-wrap {
+      margin: 0 auto;
+      width: 15rem;
+      display: flex;
+      flex-wrap: wrap;
+      > .item {
+        width: 7rem;
+        height: 3rem;
+        margin: 0.3rem 0.25rem;
+        display: flex;
+        > img {
+          width: 3rem;
+          height: 100%;
+        }
+        > .text {
+          box-sizing: border-box;
+          height: 100%;
+          width: calc(100% - 3rem);
+          font-size: 0.2rem;
+          overflow: hidden;
+          padding: 0.2rem;
+        }
+      }
+    }
+    > .more {
+      height: 1rem;
+      line-height: 1rem;
+      text-align: center;
+    }
   }
 }
 </style>

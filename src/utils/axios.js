@@ -19,16 +19,16 @@ export default {
             resolve(res.data);
           } else {
             Message.error({
-              content: res.data && res.data.msg,
-              duration: 3
+              messgae: res.data && res.data.msg,
+              duration: 3000
             });
             reject(res.data);
           }
         })
         .catch(error => {
           Message.error({
-            content: error.message,
-            duration: 3
+            messgae: error.message,
+            duration: 3000
           });
           reject(error);
         });
@@ -48,16 +48,16 @@ export default {
             resolve(res.data);
           } else {
             Message.error({
-              content: res.data && res.data.msg,
-              duration: 3
+              messgae: res.data && res.data.msg,
+              duration: 3000
             });
             reject(res.data);
           }
         })
         .catch(error => {
           Message.error({
-            content: error.message,
-            duration: 3
+            messgae: error.message,
+            duration: 3000
           });
           reject(error.message);
         });
