@@ -44,7 +44,12 @@
 export default {
   methods: {
     selectType() {
-      this.$router.push(`/life/11`);
+      this.$router.push({
+        name: "life-details",
+        params: {
+          id: "11"
+        }
+      });
     }
   }
 };

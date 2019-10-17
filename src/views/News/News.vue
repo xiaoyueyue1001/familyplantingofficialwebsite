@@ -99,8 +99,8 @@ export default {
     },
     //选择新闻详情
     selectNews(news) {
+      delete this.$refs.pagination; //当跳转的时候v-if会清除pagination的Dom结构 导致找不到
       this.$router.push({
-        // path: `/news/${news.id}`
         name: "news-details",
         params: {
           id: news.id
