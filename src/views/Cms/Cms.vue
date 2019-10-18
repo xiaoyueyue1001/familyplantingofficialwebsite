@@ -35,6 +35,7 @@
 <script>
 import storage from "@/utils/storage";
 import TextModal from "./components/TextModal";
+import { Secret_Key } from "@/utils/encryption";
 export default {
   components: { TextModal },
   data() {
@@ -70,6 +71,8 @@ export default {
   },
   created() {
     let userInfo = storage.getItem("SmartPlanting");
+    userInfo = Secret_Key(userInfo, "zcmorefun", "D");
+    userInfo = JSON.parse(userInfo);
     if (!(userInfo && userInfo.account)) {
       this.$router.push({ name: "login" });
     }
@@ -91,12 +94,11 @@ export default {
 <style lang="less" scoped>
 #cms {
   height: 100%;
-  background-color: #ccc;
+  background-color: #eee;
+  padding-top: 0.5rem;
   > .cms-box {
-    margin: 0 auto;
-    width: 12rem;
-    background-color: #eee;
-    padding: 0.2rem;
+    margin: 0 0.5rem;
+    height: 100%;
     > .header {
       height: 1rem;
       line-height: 1rem;

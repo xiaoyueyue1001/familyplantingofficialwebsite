@@ -88,6 +88,7 @@ export default {
   > .el-dialog__footer {
     height: 1rem;
     padding: 0;
+    padding-right: 0.5rem;
   }
 }
 </style>

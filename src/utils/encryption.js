@@ -1,4 +1,4 @@
-import Base64 from "js-base64"
+// import Base64 from "js-base64"
 /**
 * JS字符串加密和解密
 * @date:    2018年06月07日 上午10:03:41
@@ -10,9 +10,10 @@ import Base64 from "js-base64"
 */
 export function Secret_Key(str, pwd, type) {
 
-  var b = new Base64(); //需要加载一个Base64.js文件 可以上网自行下载
+  // var b = new Base64(); //需要加载一个Base64.js文件 可以上网自行下载
   if (type == 'E') {   //加密
-    str = b.encode(str);//Base64加密
+    // str = b.encode(str);//Base64加密
+    str = window.btoa(str);//Base64加密
     var prand = "";
     for (var i = 0; i < pwd.length; i++) {
       prand += pwd.charCodeAt(i).toString();
@@ -68,7 +69,8 @@ export function Secret_Key(str, pwd, type) {
       enc_str += String.fromCharCode(enc_chr);
       prand = (mult * prand + incr) % modu;
     }
-    return b.decode(enc_str);
+    // return b.decode(enc_str);
+    return window.atob(enc_str);
   }
 }
 

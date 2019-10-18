@@ -31,7 +31,14 @@ export default {
     };
   },
   created() {
-    let str = Secret_Key("123456", "asd", "");
+    let pwd = Secret_Key("123456", "asd", "E");
+    console.log(pwd);
+    let str = Secret_Key(
+      "dd32c3bc5ff704a122c96630bbaee4247cdf72c002129a05",
+      "zcmorefun",
+      "D"
+    );
+    console.log(str);
   },
   methods: {
     onSubmit() {
@@ -39,13 +46,11 @@ export default {
         this.form.account === "admin" &&
         md5(this.form.password) === "0192023a7bbd73250516f069df18b500"
       ) {
-        storage.setItem(
-          "SmartPlanting",
-          {
-            account: this.form.account
-          },
-          1
-        );
+        let data = {
+          account: this.form.account
+        };
+        data = Secret_Key(JSON.stringify(data), "zcmorefun", "E");
+        storage.setItem("SmartPlanting", data, 1);
         this.$router.push({
           name: "cms"
         });
