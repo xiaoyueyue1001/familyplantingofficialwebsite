@@ -21,12 +21,12 @@ export default {
     //设置html的fontSize以便自适应rem使用
     const dom = document.getElementsByTagName("html");
     dom[0].style["fontSize"] =
-      ((window.innerWidth >= 1366 ? window.innerWidth : 1440) / 1920) * 100 +
+      ((window.innerWidth >= 1200 ? window.innerWidth : 1200) / 1920) * 100 +
       "px";
     window.addEventListener("resize", () => {
       const dom = document.getElementsByTagName("html");
       dom[0].style["fontSize"] =
-        ((window.innerWidth >= 1366 ? window.innerWidth : 1440) / 1920) * 100 +
+        ((window.innerWidth >= 1200 ? window.innerWidth : 1200) / 1920) * 100 +
         "px";
     });
   }
@@ -35,7 +35,8 @@ export default {
 
 <style lang="less" scope>
 #app {
-  min-width: 1440px;
+  max-width: 1920px;
+  min-width: 1200px;
   font-size: 0.16rem;
   height: 100%;
 }

@@ -3,7 +3,6 @@
     <div id="nav">
       <router-link to="/home/index">首页</router-link>
       <router-link to="/home/life">走进彩色生活</router-link>
-      <!-- <router-link to="/home/product">产品中心</router-link> -->
       <el-dropdown trigger="click">
         <span class="el-dropdown-link" :class="{active:$route.name === 'product'}">
           产品中心
@@ -72,25 +71,25 @@ export default {
 <style lang="less" scope>
 #home {
   > #nav {
-    height: 1rem;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fefefe;
-    border-bottom: 1px solid #000;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid #e4e4e4;
     > a {
       margin: 0 0.2rem;
-      color: #ccc;
+      color: #666666;
       &.router-link-active {
-        color: #666;
+        color: #19ab64;
       }
     }
     > .el-dropdown {
       margin: 0 0.2rem;
       .el-dropdown-link {
-        color: #ccc;
+        color: #666666;
         &.active {
-          color: #666;
+          color: #19ab64;
         }
       }
     }
