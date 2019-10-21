@@ -1,5 +1,76 @@
+import axios from "@/utils/axios";
+
+//登录
+export function login() {
+  let params = {
+    identity: "admin",
+    desStr: "EwSSctvjsSycLoylnuKejCSr3s2OGuYM",
+    captcha: "",
+    sessionId: ""
+  }
+  return new Promise((resolve, reject) => {
+    axios
+      .postForm("/smartPlanting/admin/login", params)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
 //查询新闻
-export function queryNewsList(params) {
+export function queryNewsList({ type, page, size }) {
+  let channelId = ""
+  switch (type) {
+    case 0:
+      //新闻
+      channelId = 1747;
+      break;
+    case 1:
+      //趣味种植
+      channelId = 2084;
+      break;
+    case 2:
+      //种植教程
+      channelId = 2085;
+      break;
+  }
+  let params = {
+    channelIds: [channelId],
+    contentSecretId: "",
+    contentSecretIds: [],
+    contentType: "",
+    createEndTime: "",
+    createStartTime: "",
+    createType: "",
+    issueNum: "",
+    issueOrg: "",
+    issueYear: "",
+    key: "",
+    keyType: 1,
+    modelId: "",
+    myself: false,
+    orderType: 0,
+    page,
+    releaseEndTime: "",
+    releaseStartTime: "",
+    senior: false,
+    size,
+    status: "",
+    update: false
+  }
+  return new Promise((resolve, reject) => {
+    axios
+      .post("/smartPlanting/admin/contentext/page", params)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
   return new Promise(resolve => {
     setTimeout(() => {
       const resData = {
@@ -31,7 +102,41 @@ export function queryNewsList(params) {
 }
 
 //查询推荐文章
-export function queryRecommendNewsList(params) {
+export function queryRecommendNewsList() {
+  let params = {
+    channelIds: [1747],
+    contentSecretId: "",
+    contentSecretIds: [],
+    contentType: "",
+    createEndTime: "",
+    createStartTime: "",
+    createType: "",
+    issueNum: "",
+    issueOrg: "",
+    issueYear: "",
+    key: "",
+    keyType: 1,
+    modelId: "",
+    myself: false,
+    orderType: 0,
+    page: 1,
+    releaseEndTime: "",
+    releaseStartTime: "",
+    senior: false,
+    size: 10,
+    status: "",
+    update: false
+  }
+  return new Promise((resolve, reject) => {
+    axios
+      .post("/smartPlanting/admin/contentext/page", params)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
   return new Promise(resolve => {
     setTimeout(() => {
       const resData = {
@@ -59,4 +164,18 @@ export function queryRecommendNewsList(params) {
       resolve(resData);
     }, 1000);
   })
+}
+
+//查询文章详情
+export function queryNewsById(params) {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(`/smartPlanting/admin/content/${params.id}`)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
 }

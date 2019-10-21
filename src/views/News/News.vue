@@ -15,12 +15,12 @@
             <div class="items">
               <div
                 class="item"
-                v-for="item in recommendNewsList"
-                :key="item.id"
+                v-for="item in newList"
+                :key="item.cmsContent.id"
                 @click="selectNews(item)"
               >
-                <div class="title">{{item.title}}</div>
-                <div class="time">{{item.createTime}}</div>
+                <div class="title">{{item.cmsContent.title}}</div>
+                <div class="time">{{item.cmsContent.createTime}}</div>
               </div>
             </div>
             <el-pagination
@@ -41,9 +41,9 @@
         <div class="right">
           <div class="title">文章推荐</div>
           <div class="content-wrap">
-            <div class="item" v-for="item in recommendNewsList" :key="item.id">
-              <div class="title">{{item.title}}</div>
-              <div class="time">{{item.createTime}}</div>
+            <div class="item" v-for="item in recommendNewsList" :key="item.cmsContent.id">
+              <div class="title">{{item.cmsContent.title}}</div>
+              <div class="time">{{item.cmsContent.createTime}}</div>
             </div>
           </div>
         </div>
@@ -73,7 +73,7 @@ export default {
     this.queryNewsList();
     //查询推荐文章
     queryRecommendNewsList().then(res => {
-      this.recommendNewsList = res.data;
+      this.recommendNewsList = res.data.content;
     });
   },
   methods: {
@@ -91,10 +91,11 @@ export default {
       }
       queryNewsList({
         type: this.currentType,
-        pageSize: this.currentPageSize,
+        size: this.currentPageSize,
         page: this.currentPage
       }).then(res => {
-        this.newList = res.data;
+        this.totalNews = res.data.totalElements;
+        this.newList = res.data.content;
       });
     },
     //选择新闻详情
@@ -103,7 +104,7 @@ export default {
       this.$router.push({
         name: "news-details",
         params: {
-          id: news.id
+          id: news.cmsContent.id
         }
       });
     },

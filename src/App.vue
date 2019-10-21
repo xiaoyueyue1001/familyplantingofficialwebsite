@@ -1,11 +1,22 @@
 <template>
   <div id="app">
-    <router-view />
+    <router-view v-if="isLogin" />
   </div>
 </template>
 
 <script>
+import { login } from "@/api/news";
 export default {
+  data() {
+    return {
+      isLogin: false
+    };
+  },
+  beforeCreate() {
+    login().then(() => {
+      this.isLogin = true;
+    });
+  },
   mounted() {
     //设置html的fontSize以便自适应rem使用
     const dom = document.getElementsByTagName("html");

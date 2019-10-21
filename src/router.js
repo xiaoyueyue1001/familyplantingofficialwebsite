@@ -5,16 +5,16 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    // {
-    //   path: '/login',
-    //   name: 'login',
-    //   component: () => import('./views/Login/Login.vue')
-    // },
-    // {
-    //   path: '/cms',
-    //   name: 'cms',
-    //   component: () => import('./views/Cms/Cms.vue')
-    // },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('./views/Login/Login.vue')
+    },
+    {
+      path: '/cms',
+      name: 'cms',
+      component: () => import('./views/Cms/Cms.vue')
+    },
     {
       path: '/home',
       name: 'home',

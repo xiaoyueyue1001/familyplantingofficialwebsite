@@ -14,7 +14,7 @@ export function Secret_Key(str, pwd, type) {
   if (type == 'E') {   //加密
     // str = b.encode(str);//Base64加密
     str = window.btoa(str);//Base64加密
-    var prand = "";
+    var prand = "";//获取密钥每一位的Unicode编码
     for (var i = 0; i < pwd.length; i++) {
       prand += pwd.charCodeAt(i).toString();
     }

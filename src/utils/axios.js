@@ -15,11 +15,11 @@ export default {
           params: params
         })
         .then(res => {
-          if (res.status === 200 && res.data.code === 0) {
+          if (res.status === 200 && res.data.code === 200) {
             resolve(res.data);
           } else {
             Message.error({
-              messgae: res.data && res.data.msg,
+              message: res.data && res.data.message,
               duration: 3000
             });
             reject(res.data);
@@ -27,7 +27,7 @@ export default {
         })
         .catch(error => {
           Message.error({
-            messgae: error.message,
+            message: error.message,
             duration: 3000
           });
           reject(error);
@@ -44,11 +44,11 @@ export default {
           }
         })
         .then(res => {
-          if (res.status === 200 && res.data.code === 0) {
+          if (res.status === 200 && res.data.code === 200) {
             resolve(res.data);
           } else {
             Message.error({
-              messgae: res.data && res.data.msg,
+              message: res.data && res.data.message,
               duration: 3000
             });
             reject(res.data);
@@ -56,11 +56,53 @@ export default {
         })
         .catch(error => {
           Message.error({
-            messgae: error.message,
+            message: error.message,
             duration: 3000
           });
           reject(error.message);
         });
     });
-  }
+  },
+  postForm: (path, params) => {
+    return new Promise((resolve, reject) => {
+      axios
+        .post(path, params, {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          // 提交前更改格式
+          transformRequest: [
+            function (data) {
+              let ret = "";
+              for (const it in data) {
+                ret +=
+                  encodeURIComponent(it) +
+                  "=" +
+                  encodeURIComponent(data[it]) +
+                  "&";
+              }
+              return ret.substr(0, ret.length - 1);
+            }
+          ]
+        })
+        .then(res => {
+          if (res.status === 200 && res.data.code === 200) {
+            resolve(res.data);
+          } else {
+            Message.error({
+              message: res.data && res.data.message,
+              duration: 3000
+            });
+            reject(res.data);
+          }
+        })
+        .catch(error => {
+          Message.error({
+            message: error.message,
+            duration: 3000
+          });
+          reject(error.message);
+        });
+    });
+  },
 };
