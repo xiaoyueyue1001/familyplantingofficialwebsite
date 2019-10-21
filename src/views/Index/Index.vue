@@ -36,28 +36,10 @@
       <h3>种植资讯</h3>
       <p>绿色种植与现代科技完美结合，打造室内园艺智能种植一站式解决方案</p>
       <div class="text-wrap">
-        <div class="item">
+        <div class="item" v-for="(item,index) in newList" :key="index">
           <img src="../../assets/u7.svg" alt />
           <div class="text">
-            <p>室内植物如何护理，是全世界都关心的问题！</p>
-          </div>
-        </div>
-        <div class="item">
-          <img src="../../assets/u7.svg" alt />
-          <div class="text">
-            <p>室内植物如何护理，是全世界都关心的问题！</p>
-          </div>
-        </div>
-        <div class="item">
-          <img src="../../assets/u7.svg" alt />
-          <div class="text">
-            <p>室内植物如何护理，是全世界都关心的问题！</p>
-          </div>
-        </div>
-        <div class="item">
-          <img src="../../assets/u7.svg" alt />
-          <div class="text">
-            <p>室内植物如何护理，是全世界都关心的问题！</p>
+            <p>{{item.cmsContent.title}}</p>
           </div>
         </div>
       </div>
@@ -69,7 +51,23 @@
 </template>
 
 <script>
-export default {};
+import { queryNewsList } from "@/api/news";
+export default {
+  data() {
+    return {
+      newList: []
+    };
+  },
+  created() {
+    queryNewsList({
+      type: 1747,
+      size: 8,
+      page: 1
+    }).then(res => {
+      this.newList = res.data.content;
+    });
+  }
+};
 </script>
 <style lang="stylus" lang="less">
 #index {
