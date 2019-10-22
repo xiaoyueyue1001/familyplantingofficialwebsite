@@ -24,34 +24,34 @@
       <router-view />
     </div>
     <div id="footer">
-      <div class="links">
-        <div class="column">
-          <div class="item">产品中心</div>
-          <div class="item" @click="gotoRouter('/home/product')">智慧家庭种植机ZC01</div>
-          <div class="item" @click="gotoRouter('/home/product')">智能种植花盆ZC02</div>
+      <div class="center-wrap">
+        <div class="links">
+          <div class="left">
+            <div class="item">产品中心</div>
+            <div class="item" @click="gotoRouter('/home/product')">智慧家庭种植机ZC01</div>
+            <div class="item" @click="gotoRouter('/home/product')">智能种植花盆ZC02</div>
+          </div>
+          <div class="left">
+            <div class="item">植物中心</div>
+            <div class="item">新闻动态</div>
+            <div class="item">趣味种植</div>
+          </div>
+          <div class="left middle">
+            <div class="item">关于我们</div>
+            <div class="item">品牌介绍</div>
+            <div class="item">联系我们</div>
+          </div>
+          <div class="contact">
+            <div class="txt">全国热线</div>
+            <div class="tel">400-101-5108</div>
+          </div>
+          <div class="qrcode">
+            <img src="../../assets/QRCode.png" alt />
+            <p>扫描二维码下载app</p>
+          </div>
         </div>
-        <div class="column">
-          <div class="item">植物中心</div>
-          <div class="item">新闻动态</div>
-          <div class="item">趣味种植</div>
-        </div>
-        <div class="column">
-          <div class="item">关于我们</div>
-          <div class="item">品牌介绍</div>
-          <div class="item">联系我们</div>
-        </div>
-        <div class="column">
-          <div class="item">产品中心</div>
-          <div class="item">产品中心</div>
-          <div class="item">产品中心</div>
-        </div>
-        <div class="column">
-          <div class="item">产品中心</div>
-          <div class="item">产品中心</div>
-          <div class="item">产品中心</div>
-        </div>
+        <div class="copyright">Copyright © 2012-2019 深圳中琛源科技股份有限公司 粤ICP备12035081号-8</div>
       </div>
-      <div class="copyright">Copyright © 2012-2019 深圳中琛源科技股份有限公司 粤ICP备12035081号-8</div>
     </div>
   </div>
 </template>
@@ -72,6 +72,7 @@ export default {
 #home {
   > #nav {
     height: 80px;
+    min-width: 1200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,26 +95,65 @@ export default {
       }
     }
   }
+  > #view {
+    max-width: 1920px;
+    min-width: 1200px;
+    margin: 0 auto;
+  }
   > #footer {
-    height: 4rem;
-    background-color: #333;
-    color: #fff;
-    > .links {
-      padding-top: 1rem;
-      height: 2rem;
-      display: flex;
-      margin-left: 1rem;
-      > .column {
-        height: 100%;
-        flex: 1;
-        > .item {
-          cursor: pointer;
+    height: 344.25px;
+    background-image: url("../../assets/footer.png");
+    background-size: 100% 100%;
+    > .center-wrap {
+      max-width: 1440px;
+      min-width: 1200px;
+      margin: 0 auto;
+      color: #ccc;
+      > .links {
+        padding-top: 120px;
+        display: flex;
+        > .left {
+          width: 240px;
+          &.middle {
+            flex: 1;
+          }
+          > .item {
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 32px;
+            &:nth-child(1) {
+              font-size: 16px;
+              line-height: 40px;
+            }
+          }
+        }
+        > .contact {
+          margin-right: 76px;
+          > .txt {
+            font-size: 16px;
+            height: 16px;
+            background-image: 16px;
+            margin-bottom: 20px;
+          }
+          > .tel {
+            font-size: 24px;
+            color: #19ab64;
+            font-weight: 700;
+          }
+        }
+        > .qrcode {
+          > img {
+            width: 124px;
+            height: 124px;
+          }
+          > p {
+            margin-top: 10px;
+          }
         }
       }
-    }
-    > .copyright {
-      text-align: center;
-      font-size: 0.14rem;
+      > .copyright {
+        font-size: 14px;
+      }
     }
   }
 }

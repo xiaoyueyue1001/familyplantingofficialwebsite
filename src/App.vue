@@ -45,10 +45,7 @@ export default {
 
 <style lang="less" scope>
 #app {
-  max-width: 1920px;
-  min-width: 1200px;
   font-size: 0.16rem;
   height: 100%;
-  margin: 0 auto;
 }
 </style>

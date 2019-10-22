@@ -73,9 +73,7 @@
           </div>
         </div>
       </div>
-      <div class="more">
-        <router-link to="/home/news">更多</router-link>
-      </div>
+      <div class="more" @click="gotoNews">查看更多 ></div>
     </div>
   </div>
 </template>
@@ -103,6 +101,9 @@ export default {
   methods: {
     carouselChange(next, pre) {
       this.currentCarouselItem = next + 1;
+    },
+    gotoNews() {
+      this.$router.push({ path: "/home/news" });
     }
   }
 };
@@ -318,12 +319,11 @@ export default {
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
-      max-height: 825px;
-      height: 11rem;
-
+      max-height: 800px;
+      // height: 11rem;
       > .item {
         width: 25%;
-        height: 50%;
+        height: 400px;
         box-sizing: border-box;
         padding: 0 12px;
         > .img-wrap {
@@ -356,9 +356,21 @@ export default {
       }
     }
     > .more {
-      height: 1rem;
-      line-height: 1rem;
-      text-align: center;
+      margin: 0 auto 1rem;
+      width: 276px;
+      height: 46px;
+      background: rgba(25, 171, 100, 1);
+      border: 1px solid rgba(25, 171, 100, 1);
+      border-radius: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      font-size: 16px;
+      cursor: pointer;
+      &:hover {
+        background-color: #30c672;
+      }
     }
   }
 }
