@@ -76,8 +76,11 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.75);
     border-bottom: 1px solid #e4e4e4;
+    position: fixed;
+    z-index: 3;
+    width: 100%;
     > a {
       margin: 0 0.2rem;
       color: #666666;
