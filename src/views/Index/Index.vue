@@ -3,16 +3,16 @@
     <div class="row1">
       <el-carousel trigger="click" height="9.6rem" :autoplay="false">
         <el-carousel-item v-for="item in 4" :key="item">
-          <img style="width:100%;height:100%" src="../../assets/u86.png" alt />
+          <img style="width:100%;height:100%" src="../../assets/u001.png" alt />
         </el-carousel-item>
       </el-carousel>
     </div>
-    <div class="row4">
+    <div class="row2">
       <div class="title">拥有彩虹蔬的生活</div>
       <p class="sub-title">从小小的种子开始种植的蔬菜。看着它们的模样、让人既期待又兴奋……</p>
       <p class="sub-title">拥有彩虹蔬 而更丰富一点的生活、你也想开始看看吗？</p>
       <div class="carousel-wrap">
-        <el-carousel :interval="400000" height="7.1rem" @change="carouselChange">
+        <el-carousel :interval="400000" @change="carouselChange">
           <el-carousel-item v-for="item in 6" :key="item">
             <img style="width:100%;height:100%" src="../../assets/u88.jpg" alt />
             <div class="days" v-if="currentCarouselItem===item">
@@ -28,26 +28,47 @@
         </el-carousel>
       </div>
     </div>
-    <div class="row2">
-      <h4 class="title">智慧场景</h4>
-      <p class="sub-title">把大自然搬回家，和家人一起唤醒健康的生活方式</p>
+    <div class="row3">
       <div class="img-wrap">
-        <img style="width:100%;height:100%" src="../../assets/u36.png" alt />
+        <img style="width:100%;height:100%" src="../../assets/u335.png" alt />
+      </div>
+      <div class="txt">
+        <div class="title">科技赋能园艺，智能创造生活</div>
+        <div class="sub-title">智慧的本质,是一种生活方式，轻松、有趣、省心，彩虹疏让种植从未这么简单。</div>
+        <div class="btn">查看详情 ></div>
       </div>
     </div>
-    <div class="row3">
-      <img style="width:100%;height:100%" src="../../assets/u75.jpg" alt />
+    <div class="row4">
+      <div class="txt">
+        <div class="title">用 App 將植物的「现状」通知到智慧型裝置上</div>
+        <div class="sub-title">帮助植物“开口说话”，精准传达植物生长过程中所需信号，自动化改善植物生长环境;</div>
+        <div class="sub-title">无论是工作中还是旅行中,都可以安心</div>
+      </div>
+      <div class="img-wrap">
+        <div class="img-wrap">
+          <img style="width:100%;height:100%" src="../../assets/u666.png" alt />
+        </div>
+        <div class="title">
+          <div class="txt">让植物开口说话的APP</div>
+          <div class="btn">查看更多 ></div>
+        </div>
+      </div>
     </div>
     <div class="row5">
-      <img style="width:100%;height:100%" src="../../assets/u86.png" alt />
-    </div>
-    <div class="row6">
-      <h3>种植资讯</h3>
-      <p>绿色种植与现代科技完美结合，打造室内园艺智能种植一站式解决方案</p>
+      <div class="txt">
+        <div class="title">种植资讯</div>
+        <div class="sub-title">绿色种植与现代科技完美结合，打造室内园艺智能种植一站式解决方案</div>
+      </div>
       <div class="text-wrap">
         <div class="item" v-for="(item,index) in newList" :key="index">
-          <img src="../../assets/u7.svg" alt />
+          <div class="img-wrap">
+            <img style="width:100%;height:100%" src="../../assets/u335.png" alt />
+          </div>
           <div class="text">
+            <div class="data">
+              <span class="month">29</span>
+              <span class="day">/8月</span>
+            </div>
             <p>{{item.cmsContent.title}}</p>
           </div>
         </div>
@@ -106,28 +127,6 @@ export default {
     }
   }
   > .row2 {
-    height: 7rem;
-    background-color: #f8f8f8;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    > .title {
-      height: 1rem;
-      padding-top: 1rem;
-      font-size: 0.3rem;
-    }
-    > .sub-title {
-      height: 0.5rem;
-    }
-    > .img-wrap {
-      width: 11.09rem;
-      height: 4.68rem;
-    }
-  }
-  > .row3 {
-    height: 6.64rem;
-  }
-  > .row4 {
     text-align: center;
     overflow: hidden;
     > .title {
@@ -147,11 +146,15 @@ export default {
       max-width: 1440px;
       overflow: hidden;
       .el-carousel {
-        width: 11.76rem;
+        width: 15.68rem;
+        max-width: 1176px;
         overflow: visible;
         margin: 0 auto;
         > .el-carousel__container {
-          width: 11.4rem;
+          width: 15.2rem;
+          max-width: 1140px;
+          height: 9.47rem;
+          max-height: 710px;
           margin: 0 auto;
           .days {
             position: absolute;
@@ -188,44 +191,167 @@ export default {
       }
     }
   }
-  > .row5 {
-    height: 8rem;
-  }
-  > .row6 {
-    > h3 {
-      height: 1rem;
-      line-height: 1rem;
-      text-align: center;
-      font-size: 0.3rem;
-      color: green;
+  > .row3 {
+    max-width: 1440px;
+    max-height: 750px;
+    height: 10rem;
+    margin: 0.72rem auto 0;
+    position: relative;
+    > .img-wrap {
+      height: 100%;
     }
-    > p {
-      height: 0.5rem;
-      line-height: 0.5rem;
-      text-align: center;
-      font-size: 0.2rem;
+    > .txt {
+      position: absolute;
+      top: 19.3%;
+      right: 0;
+      > .title {
+        font-size: 0.36rem;
+        height: 0.36rem;
+        line-height: 0.36rem;
+        color: #333333;
+      }
+      > .sub-title {
+        font-size: 0.18rem;
+        height: 0.18rem;
+        line-height: 0.18rem;
+        margin-top: 0.22rem;
+        color: #666;
+      }
+      > .btn {
+        margin-top: 0.45rem;
+        width: 2.26rem;
+        height: 0.46rem;
+        background: rgba(25, 171, 100, 1);
+        border-radius: 0.04rem;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.16rem;
+        cursor: pointer;
+        &:hover {
+          background-color: #30c672;
+        }
+      }
+    }
+  }
+  > .row4 {
+    max-width: 1440px;
+    margin: 0 auto;
+    > .txt {
+      height: 3.1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      > .title {
+        font-size: 0.36rem;
+        height: 0.66rem;
+        line-height: 0.66rem;
+        color: #333333;
+      }
+      > .sub-title {
+        height: 0.3rem;
+        line-height: 0.3rem;
+        font-size: 0.18rem;
+        color: #666;
+      }
+    }
+    > .img-wrap {
+      max-height: 1023px;
+      height: 13.64rem;
+      position: relative;
+      > .title {
+        position: absolute;
+        left: 19.86%;
+        top: 23.37%;
+        > .txt {
+          font-size: 36px;
+          line-height: 36px;
+          height: 36px;
+          color: #19ab64;
+          font-weight: 700;
+        }
+        > .btn {
+          width: 276px;
+          height: 46px;
+          background: rgba(25, 171, 100, 1);
+          border: 1px solid rgba(25, 171, 100, 1);
+          border-radius: 4px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #ffffff;
+          font-size: 16px;
+          margin-top: 48px;
+          cursor: pointer;
+          &:hover {
+            background-color: #30c672;
+          }
+        }
+      }
+    }
+  }
+  > .row5 {
+    max-width: 1440px;
+    margin: 0 auto;
+    > .txt {
+      height: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      > .title {
+        font-size: 0.36rem;
+        height: 0.66rem;
+        line-height: 0.66rem;
+        color: #333333;
+      }
+      > .sub-title {
+        height: 0.3rem;
+        line-height: 0.3rem;
+        font-size: 0.18rem;
+        color: #666;
+      }
     }
     > .text-wrap {
       margin: 0 auto;
-      width: 15rem;
       display: flex;
       flex-wrap: wrap;
+      max-height: 825px;
+      height: 11rem;
+
       > .item {
-        width: 7rem;
-        height: 3rem;
-        margin: 0.3rem 0.25rem;
-        display: flex;
-        > img {
-          width: 3rem;
-          height: 100%;
+        width: 25%;
+        height: 50%;
+        box-sizing: border-box;
+        padding: 0 12px;
+        > .img-wrap {
+          height: 200px;
         }
         > .text {
-          box-sizing: border-box;
-          height: 100%;
-          width: calc(100% - 3rem);
-          font-size: 0.2rem;
-          overflow: hidden;
-          padding: 0.2rem;
+          > .data {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            color: #999999;
+            > .month {
+              font-size: 20px;
+            }
+            > .day {
+              font-size: 12px;
+              transform: translateY(2px);
+            }
+          }
+          > p {
+            line-height: 30px;
+            color: #333333;
+            cursor: pointer;
+            &:hover {
+              color: #19ab64;
+            }
+          }
         }
       }
     }

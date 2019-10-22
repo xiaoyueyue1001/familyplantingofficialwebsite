@@ -20,14 +20,24 @@ export default {
   mounted() {
     //设置html的fontSize以便自适应rem使用
     const dom = document.getElementsByTagName("html");
-    dom[0].style["fontSize"] =
-      ((window.innerWidth >= 1200 ? window.innerWidth : 1200) / 1920) * 100 +
-      "px";
+    let calc = window.innerWidth;
+    if (window.innerWidth <= 1200) {
+      calc = 1200;
+    }
+    if (window.innerWidth >= 1920) {
+      calc = 1920;
+    }
+    dom[0].style["fontSize"] = (calc / 1920) * 100 + "px";
     window.addEventListener("resize", () => {
       const dom = document.getElementsByTagName("html");
-      dom[0].style["fontSize"] =
-        ((window.innerWidth >= 1200 ? window.innerWidth : 1200) / 1920) * 100 +
-        "px";
+      let calc = window.innerWidth;
+      if (window.innerWidth <= 1200) {
+        calc = 1200;
+      }
+      if (window.innerWidth >= 1920) {
+        calc = 1920;
+      }
+      dom[0].style["fontSize"] = (calc / 1920) * 100 + "px";
     });
   }
 };
@@ -39,5 +49,6 @@ export default {
   min-width: 1200px;
   font-size: 0.16rem;
   height: 100%;
+  margin: 0 auto;
 }
 </style>
