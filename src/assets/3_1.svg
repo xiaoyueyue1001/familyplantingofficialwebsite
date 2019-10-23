@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg t="1568886689677" class="icon" version="1.1" 
+  xmlns="http://www.w3.org/2000/svg" p-id="1369" 
+  xmlns:xlink="http://www.w3.org/1999/xlink" width="150" height="150">
+  <defs>
+    <style type="text/css"></style>
+  </defs>
+  <circle cx="75" cy="75" r="60" fill="url(#white_blue)">
+    <animate attributeName="r" from="60" to="75" dur="1s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="75" cy="75" r="37" fill="url(#white_blue)">
+    <animate attributeName="r" from="37" to="60" dur="1s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="75" cy="75" r="25" fill="url(#white_blue)">
+    <animate attributeName="r" from="25" to="37" dur="1s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="75" cy="75" r="25" fill="#27cc7c">
+  </circle>
+  <defs>
+    <radialGradient id="white_blue" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#27cc7c;
+                            stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#27cc7c;
+                            stop-opacity:0.4" />
+      <stop offset="80%" style="stop-color:#27cc7c;
+                            stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#27cc7c;
+                            stop-opacity:0.1" />
+    </radialGradient>
+  </defs>
+</svg>

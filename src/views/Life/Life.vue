@@ -50,24 +50,24 @@
             <div class="btn">物联网</div>
           </div>
           <div class="item">
-            <div class="modal">物联网</div>
-            <div class="btn">物联网</div>
+            <div class="modal">大数据</div>
+            <div class="btn">大数据</div>
           </div>
           <div class="item">
-            <div class="modal">物联网</div>
-            <div class="btn">物联网</div>
+            <div class="modal">人工智能</div>
+            <div class="btn">人工智能</div>
           </div>
           <div class="item">
-            <div class="modal">物联网</div>
-            <div class="btn">物联网</div>
+            <div class="modal">工业设计</div>
+            <div class="btn">工业设计</div>
           </div>
           <div class="item">
-            <div class="modal">物联网</div>
-            <div class="btn">物联网</div>
+            <div class="modal">品种选育</div>
+            <div class="btn">品种选育</div>
           </div>
           <div class="item">
-            <div class="modal">物联网</div>
-            <div class="btn">物联网</div>
+            <div class="modal">光学生活</div>
+            <div class="btn">光学生活</div>
           </div>
         </div>
       </div>
@@ -163,7 +163,6 @@ export default {
           cursor: pointer;
           background: rgba(246, 246, 246, 1);
           border-radius: 4px;
-          border: 1px dashed #666;
           &:hover {
             border: 1px dashed #19ab64;
             > .text {

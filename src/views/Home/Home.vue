@@ -3,7 +3,7 @@
     <div id="nav">
       <router-link to="/home/index">首页</router-link>
       <router-link to="/home/life">走进彩色生活</router-link>
-      <el-dropdown trigger="click">
+      <!-- <el-dropdown trigger="click">
         <span class="el-dropdown-link" :class="{active:$route.name === 'product'}">
           产品中心
           <i class="el-icon-arrow-down el-icon--right"></i>
@@ -16,7 +16,8 @@
             <router-link to="/home/product">阳台智能种植</router-link>
           </el-dropdown-item>
         </el-dropdown-menu>
-      </el-dropdown>
+      </el-dropdown>-->
+      <router-link to="/home/product">产品中心</router-link>
       <router-link to="/home/news">植物动态</router-link>
       <router-link to="/home/about">关于我们</router-link>
     </div>
@@ -88,15 +89,15 @@ export default {
         color: #19ab64;
       }
     }
-    > .el-dropdown {
-      margin: 0 0.2rem;
-      .el-dropdown-link {
-        color: #666666;
-        &.active {
-          color: #19ab64;
-        }
-      }
-    }
+    // > .el-dropdown {
+    //   margin: 0 0.2rem;
+    //   .el-dropdown-link {
+    //     color: #666666;
+    //     &.active {
+    //       color: #19ab64;
+    //     }
+    //   }
+    // }
   }
   > #view {
     max-width: 1920px;
