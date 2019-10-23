@@ -1,8 +1,9 @@
 <template>
   <div id="news-wrap">
     <div class="news" v-if="!$route.params.id">
-      <div class="img-wrap">
-        <img style="width:100%;height:100%" src="../../assets/u395.jpg" alt />
+      <div class="header">
+        <div class="title">一起感受植物之美，一起享受种植的乐趣</div>
+        <div class="sub-title">这里是副标题，我也不知道写什么，这里是副标题</div>
       </div>
       <div class="news-wrap">
         <div class="left">
@@ -19,31 +20,37 @@
                 :key="item.cmsContent.id"
                 @click="selectNews(item)"
               >
-                <div class="title">{{item.cmsContent.title}}</div>
-                <div class="time">{{item.cmsContent.createTime}}</div>
+                <img src="../../assets/4_demo.png" alt />
+                <div class="txt">
+                  <div class="title">{{item.cmsContent.title}}</div>
+                  <div class="sub-title">{{item.cmsContent.subtitle}}</div>
+                  <div
+                    class="time"
+                  >{{item.cmsContent.createTime}}&nbsp;{{item.cmsContent.createUser}}</div>
+                </div>
               </div>
             </div>
-            <el-pagination
-              ref="pagination"
-              background
-              :small="true"
-              :hide-on-single-page="true"
-              :page-sizes="[5, 10, 15]"
-              :page-size="5"
-              :pagerCount="5"
-              layout="prev, pager, next,sizes,jumper"
-              :total="totalNews"
-              @size-change="handleSizeChange"
-              @current-change="handleCurrentChange"
-            ></el-pagination>
+            <div class="news-pagination">
+              <el-pagination
+                ref="pagination"
+                background
+                :page-sizes="[5, 10, 15]"
+                :page-size="5"
+                :pagerCount="5"
+                layout="prev, pager, next,jumper"
+                :total="totalNews"
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+              ></el-pagination>
+            </div>
           </div>
         </div>
         <div class="right">
           <div class="title">文章推荐</div>
           <div class="content-wrap">
             <div class="item" v-for="item in recommendNewsList" :key="item.cmsContent.id">
+              <span class="dot"></span>
               <div class="title">{{item.cmsContent.title}}</div>
-              <div class="time">{{item.cmsContent.createTime}}</div>
             </div>
           </div>
         </div>
@@ -125,68 +132,151 @@ export default {
 <style lang="less" scoped>
 #news-wrap {
   .news {
-    > .img-wrap {
-      height: 7rem;
+    > .header {
+      height: 6.12rem;
+      background-image: url("../../assets/4_1_1.png");
+      background-size: 100% 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      > .title {
+        line-height: 0.32rem;
+        height: 0.32rem;
+        font-size: 0.32rem;
+        font-weight: 700;
+        margin-bottom: 0.26rem;
+      }
+      > .sub-title {
+        height: 0.18rem;
+        line-height: 0.18rem;
+        font-size: 0.18rem;
+      }
     }
     > .news-wrap {
-      height: 7.5rem;
+      width: 1200px;
+      margin: 0.6rem auto 0;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       > .left {
-        width: 7.5rem;
+        width: 770px;
         height: 100%;
-        margin-right: 0.2rem;
-        background-color: #eee;
         > .type-list {
-          height: 1rem;
+          height: 46px;
           display: flex;
-          align-items: center;
-          margin-left: 0.2rem;
+          align-items: flex-start;
+          border-bottom: 1px solid #e5e5e5;
           > .item {
-            font-size: 0.2rem;
-            color: #ccc;
-            margin-right: 0.2rem;
+            font-size: 20px;
+            color: #333;
+            margin-right: 70px;
             cursor: pointer;
+            height: 100%;
             &.active {
-              color: #666;
+              color: #19ab64;
+              border-bottom: 1px solid #19ab64;
             }
           }
         }
         > .news-wrap {
           > .items {
-            height: 4rem;
+            max-height: 1600px;
             > .item {
               cursor: pointer;
-              height: 1rem;
+              height: 200px;
+              display: flex;
+              align-items: center;
+              border-bottom: 1px solid #e5e5e5;
+              > img {
+                width: 220px;
+                height: 138px;
+                margin-right: 30px;
+              }
+              > .txt {
+                flex-grow: 1;
+                height: 138px;
+                > .title {
+                  font-size: 20px;
+                  height: 46px;
+                  line-height: 46px;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                  color: #333;
+                }
+                > .sub-title {
+                  font-size: 16px;
+                  height: 16px;
+                  line-height: 16px;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                  color: #666;
+                }
+                > .time {
+                  margin-top: 24px;
+                  font-size: 12px;
+                  color: #aaa;
+                }
+              }
             }
+          }
+          > .news-pagination {
+            height: 126px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
         }
       }
       > .right {
-        width: 6rem;
-        height: 100%;
-        background-color: #eee;
+        width: 323px;
         > .title {
-          height: 0.5rem;
-          line-height: 0.5rem;
-          font-size: 0.3rem;
-          margin-left: 0.2rem;
+          height: 46px;
+          font-size: 20px;
+          border-bottom: 1px solid #e5e5e5;
         }
         > .content-wrap {
-          max-height: 4.8rem;
+          margin-top: 10px;
           > .item {
-            height: 0.6rem;
+            height: 35px;
+            line-height: 35px;
+            font-size: 16px;
             display: flex;
-            padding: 0 0.2rem;
+            align-items: center;
             cursor: pointer;
-            > .title {
-              flex: 2;
+            > .dot {
+              width: 3px;
+              height: 3px;
+              border-radius: 50%;
+              background-color: #19ab64;
+              margin-right: 5px;
             }
-            > .time {
-              flex: 1;
-              text-align: right;
+            > .title {
+              color: #333333;
+              height: 35px;
+              line-height: 35px;
+              &:hover {
+                color: #19ab64;
+              }
             }
           }
+        }
+      }
+    }
+  }
+}
+</style>
+<style lang="less">
+#news-wrap {
+  .news {
+    .news-pagination {
+      .el-pagination {
+        display: flex;
+        justify-content: center;
+        &.is-background .el-pager li:not(.disabled).active {
+          background-color: #19ab64;
         }
       }
     }
