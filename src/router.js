@@ -16,6 +16,11 @@ export default new Router({
       component: () => import('./views/Cms/Cms.vue')
     },
     {
+      path: "/app",
+      name: "app-details",
+      component: () => import('./views/Index/components/AppDetails.vue'),
+    },
+    {
       path: '/home',
       name: 'home',
       redirect: 'home/index',

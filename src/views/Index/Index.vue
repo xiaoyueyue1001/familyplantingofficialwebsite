@@ -50,7 +50,7 @@
         </div>
         <div class="title">
           <div class="txt">让植物开口说话的APP</div>
-          <div class="btn">查看更多 ></div>
+          <div class="btn" @click="gotoApp">查看更多 ></div>
         </div>
       </div>
     </div>
@@ -104,6 +104,9 @@ export default {
     },
     gotoNews() {
       this.$router.push({ path: "/home/news" });
+    },
+    gotoApp() {
+      this.$router.push({ name: "app-details" });
     }
   }
 };
