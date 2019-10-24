@@ -59,6 +59,7 @@
         </div>
         <div class="line"></div>
         <div class="copyright">Copyright © 2012-2019 深圳中琛源科技股份有限公司 粤ICP备12035081号-8</div>
+        <div class="top" @click="gototop"></div>
       </div>
     </div>
     <div class="indicator-wrap">
@@ -92,8 +93,10 @@
       <div class="circle circle1"></div>
       <div class="circle circle2"></div>
     </div>
-    <div class="phone-wrap">
-      <div class="phone"></div>
+    <div class="phone-wrap" :style="phoneWrapStyle">
+      <div class="phone">
+        <img src="../../../assets/app_phone_hand.png" :style="handBgImgStyle" alt />
+      </div>
       <div class="icons">
         <div class="icon"></div>
       </div>
@@ -157,6 +160,28 @@ export default {
           top: "-200%"
         };
       }
+    },
+    phoneWrapStyle() {
+      const minPage = 1;
+      const maxPage = 5;
+      if (this.currentPage < minPage) {
+        return {
+          top: "150%"
+        };
+      } else if (this.currentPage <= maxPage) {
+        return {
+          top: "50%"
+        };
+      } else {
+        return {
+          top: "-50%"
+        };
+      }
+    },
+    handBgImgStyle() {
+      return {
+        opacity: this.currentPage === 3 ? 1 : 0
+      };
     }
   },
   created() {
@@ -194,10 +219,10 @@ export default {
           console.log(this.currentPage);
         }
       }
+    },
+    gototop() {
+      this.currentPage = 0;
     }
-  },
-  watch: {
-    currentPage(page) {}
   }
 };
 </script>
@@ -291,6 +316,7 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        position: relative;
         > .title {
           font-size: 0.6rem;
           height: 0.96rem;
@@ -340,6 +366,18 @@ export default {
           text-align: center;
           color: #28804c;
           margin-top: 0.25rem;
+        }
+        > .top {
+          position: absolute;
+          width: 0.86rem;
+          height: 0.86rem;
+          background-image: url("../../../assets/gototop.png");
+          background-size: 100% 100%;
+          color: #000;
+          bottom: 1rem;
+          right: calc(50% - 720px);
+          transform: translateX(50%);
+          cursor: pointer;
         }
       }
     }
@@ -426,6 +464,32 @@ export default {
     }
   }
   > .phone-wrap {
+    width: 32.4vh;
+    transition: all 0.5s linear;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    > .phone {
+      width: 26.48vh;
+      height: 57.96vh;
+      background-image: url("../../../assets/app_phone_1.png");
+      background-size: 100% 100%;
+      position: relative;
+      > img {
+        position: absolute;
+        right: -15%;
+        width: 335%;
+        height: 136%;
+        top: 7%;
+        transition: all 0.5s;
+      }
+    }
   }
 }
 </style>
