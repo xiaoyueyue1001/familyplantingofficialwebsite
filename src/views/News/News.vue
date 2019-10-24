@@ -20,7 +20,7 @@
                 :key="item.cmsContent.id"
                 @click="selectNews(item)"
               >
-                <img src="../../assets/4_demo.png" alt />
+                <img v-lazy="require('../../assets/4_demo.png')" alt />
                 <div class="txt">
                   <div class="title">{{item.cmsContent.title}}</div>
                   <div class="sub-title">{{item.cmsContent.subtitle}}</div>
