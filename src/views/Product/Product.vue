@@ -67,72 +67,70 @@
         </div>
       </div>
     </div>
-    <lazy-component>
-      <div class="row6">
-        <div class="txt">
-          <div class="title">
-            <span>全流程的科学供应链</span>
-          </div>
-          <div class="sub-title">采用现代化的科学供应模式，一站式的产品生产。</div>
-          <div class="sub-title">从选种，培养，种植，采摘，触手可及。</div>
+    <lazy-component class="row6">
+      <div class="txt">
+        <div class="title">
+          <span>全流程的科学供应链</span>
         </div>
-        <div class="content-wrap">
-          <div class="item">
-            <img src="../../assets/3_6_1.png" alt />
-            <div class="title">
-              <div class="step">
-                <img src="../../assets/step_1.png" style="width:100%;height:100%" alt />
-              </div>
-              <div class="text">精致选种</div>
+        <div class="sub-title">采用现代化的科学供应模式，一站式的产品生产。</div>
+        <div class="sub-title">从选种，培养，种植，采摘，触手可及。</div>
+      </div>
+      <div class="content-wrap">
+        <div class="item">
+          <img src="../../assets/3_6_1.png" alt />
+          <div class="title">
+            <div class="step">
+              <img src="../../assets/step_1.png" style="width:100%;height:100%" alt />
             </div>
+            <div class="text">精致选种</div>
           </div>
-          <div class="arrow">
-            <img src="../../assets/arrow_right.png" style="width:29px;heigh:29px" alt />
-          </div>
-          <div class="item">
-            <img src="../../assets/3_6_2.png" alt />
-            <div class="title">
-              <div class="step">
-                <img src="../../assets/step_2.png" style="width:100%;height:100%" alt />
-              </div>
-              <div class="text">彩虹蔬培养</div>
+        </div>
+        <div class="arrow">
+          <img src="../../assets/arrow_right.png" style="width:29px;heigh:29px" alt />
+        </div>
+        <div class="item">
+          <img src="../../assets/3_6_2.png" alt />
+          <div class="title">
+            <div class="step">
+              <img src="../../assets/step_2.png" style="width:100%;height:100%" alt />
             </div>
+            <div class="text">彩虹蔬培养</div>
           </div>
-          <div class="arrow">
-            <img src="../../assets/arrow_right.png" style="width:29px;heigh:29px" alt />
-          </div>
-          <div class="item">
-            <img src="../../assets/3_6_3.png" alt />
-            <div class="title">
-              <div class="step">
-                <img src="../../assets/step_3.png" style="width:100%;height:100%" alt />
-              </div>
-              <div class="text">自家种植</div>
+        </div>
+        <div class="arrow">
+          <img src="../../assets/arrow_right.png" style="width:29px;heigh:29px" alt />
+        </div>
+        <div class="item">
+          <img src="../../assets/3_6_3.png" alt />
+          <div class="title">
+            <div class="step">
+              <img src="../../assets/step_3.png" style="width:100%;height:100%" alt />
             </div>
+            <div class="text">自家种植</div>
           </div>
-          <div class="arrow">
-            <img src="../../assets/arrow_right.png" style="width:29px;heigh:29px" alt />
-          </div>
-          <div class="item">
-            <img src="../../assets/3_6_4.png" alt />
-            <div class="title">
-              <div class="step">
-                <img src="../../assets/step_4.png" style="width:100%;height:100%" alt />
-              </div>
-              <div class="text">随心采摘</div>
+        </div>
+        <div class="arrow">
+          <img src="../../assets/arrow_right.png" style="width:29px;heigh:29px" alt />
+        </div>
+        <div class="item">
+          <img src="../../assets/3_6_4.png" alt />
+          <div class="title">
+            <div class="step">
+              <img src="../../assets/step_4.png" style="width:100%;height:100%" alt />
             </div>
+            <div class="text">随心采摘</div>
           </div>
-          <div class="arrow">
-            <img src="../../assets/arrow_right.png" style="width:29px;heigh:29px" alt />
-          </div>
-          <div class="item">
-            <img src="../../assets/3_6_5.png" alt />
-            <div class="title">
-              <div class="step">
-                <img src="../../assets/step_5.png" style="width:100%;height:100%" alt />
-              </div>
-              <div class="text">放心食用</div>
+        </div>
+        <div class="arrow">
+          <img src="../../assets/arrow_right.png" style="width:29px;heigh:29px" alt />
+        </div>
+        <div class="item">
+          <img src="../../assets/3_6_5.png" alt />
+          <div class="title">
+            <div class="step">
+              <img src="../../assets/step_5.png" style="width:100%;height:100%" alt />
             </div>
+            <div class="text">放心食用</div>
           </div>
         </div>
       </div>
@@ -534,7 +532,7 @@ export default {
       }
     }
   }
-  .row6 {
+  > .row6 {
     max-width: 1440px;
     margin: 0 auto;
     animation: move 1s 1;

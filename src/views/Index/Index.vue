@@ -57,12 +57,12 @@
       </div>
     </div>
     <div class="row5">
-      <div class="txt">
+      <lazy-component class="txt">
         <div class="title">种植资讯</div>
         <div class="sub-title">绿色种植与现代科技完美结合，打造室内园艺智能种植一站式解决方案</div>
-      </div>
+      </lazy-component>
       <div class="text-wrap">
-        <div class="item" v-for="(item,index) in newList" :key="index">
+        <lazy-component class="item" v-for="(item,index) in newList" :key="index">
           <div class="img-wrap">
             <img style="width:100%;height:100%" src="../../assets/1_news_demo.png" alt />
           </div>
@@ -73,7 +73,7 @@
             </div>
             <p>{{item.cmsContent.title}}</p>
           </div>
-        </div>
+        </lazy-component>
       </div>
       <div class="more" @click="gotoNews">查看更多 ></div>
     </div>
@@ -329,6 +329,7 @@ export default {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      animation: jackInTheBox 1s;
       > .title {
         font-size: 0.36rem;
         height: 0.66rem;
@@ -347,12 +348,12 @@ export default {
       display: flex;
       flex-wrap: wrap;
       max-height: 800px;
-      // height: 11rem;
       > .item {
         width: 25%;
         height: 400px;
         box-sizing: border-box;
         padding: 0 12px;
+        animation: fadeInUp 1s;
         > .img-wrap {
           height: 200px;
         }
@@ -411,6 +412,21 @@ export default {
   }
   100% {
     transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+  }
+}
+
+@keyframes domMove {
+  0% {
+    transform: translate3d(-50%, 100%, 0) scale3d(0.8, 0.8, 0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: translate3d(-10%, 20%, 0) scale3d(0.8, 0.8, 0.8);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    opacity: 1;
   }
 }
 </style>

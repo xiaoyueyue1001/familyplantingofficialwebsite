@@ -11,31 +11,15 @@
           <div class="sub-title">即采即食、美好环境，缓解个人压力，增加氧气有助于人体健康</div>
         </div>
         <div class="content-wrap">
-          <div class="item" @click="selectType(0)" :class="{active:currentLife === 0}">
-            <img src="../../assets/2_2_1.png" alt />
-            <div class="text">鲜活蔬菜，即采即食</div>
-          </div>
-          <div class="item" @click="selectType(1)" :class="{active:currentLife === 1}">
-            <img src="../../assets/2_2_2.png" alt />
-            <div class="text">寓教娱乐，培养孩子综合素质</div>
-          </div>
-          <div class="item" @click="selectType(2)" :class="{active:currentLife === 2}">
-            <img src="../../assets/2_2_3.png" alt />
-            <div class="text">生物制氧，大自然般的氧吧</div>
-          </div>
-        </div>
-        <div class="content-wrap">
-          <div class="item" @click="selectType(3)" :class="{active:currentLife === 3}">
-            <img src="../../assets/2_2_4.png" alt />
-            <div class="text">绿色美化，鸟语花香的世外桃源</div>
-          </div>
-          <div class="item" @click="selectType(4)" :class="{active:currentLife === 4}">
-            <img src="../../assets/2_2_5.png" alt />
-            <div class="text">净化加湿-植物蒸腾，双向调节</div>
-          </div>
-          <div class="item" @click="selectType(5)" :class="{active:currentLife === 5}">
-            <img src="../../assets/2_2_6.png" alt />
-            <div class="text">平缓焦虑，解决自然愉悦心情</div>
+          <div
+            class="item"
+            v-for="(item,index) in lifeDataList"
+            :key="index"
+            @click="selectType(index)"
+            :class="{active:currentLife === index}"
+          >
+            <img v-lazy="item.src" alt />
+            <div class="text">{{item.title}}</div>
           </div>
         </div>
       </div>
@@ -45,29 +29,14 @@
           <div class="sub-title">智慧的本质,是一种生活方式，轻松、有趣、省心，彩虹疏让种植从未这么简单。</div>
         </div>
         <div class="fan-carousel">
-          <div class="item">
-            <div class="modal">物联网</div>
-            <div class="btn">物联网</div>
-          </div>
-          <div class="item">
-            <div class="modal">大数据</div>
-            <div class="btn">大数据</div>
-          </div>
-          <div class="item">
-            <div class="modal">人工智能</div>
-            <div class="btn">人工智能</div>
-          </div>
-          <div class="item">
-            <div class="modal">工业设计</div>
-            <div class="btn">工业设计</div>
-          </div>
-          <div class="item">
-            <div class="modal">品种选育</div>
-            <div class="btn">品种选育</div>
-          </div>
-          <div class="item">
-            <div class="modal">光学生活</div>
-            <div class="btn">光学生活</div>
+          <div
+            class="item"
+            v-for="item in lifeDataList2"
+            :key="item.id"
+            :style="{backgroundImage:`url(${item.src})`}"
+          >
+            <div class="modal">{{item.title}}</div>
+            <div class="btn">{{item.title}}</div>
           </div>
         </div>
       </div>
@@ -82,7 +51,41 @@
 export default {
   data() {
     return {
-      currentLife: null
+      currentLife: null,
+      lifeDataList: [
+        {
+          title: "鲜活蔬菜，即采即食",
+          src: require("../../assets/2_2_1.png")
+        },
+        {
+          title: "寓教娱乐，培养孩子综合素质",
+          src: require("../../assets/2_2_2.png")
+        },
+        {
+          title: "生物制氧，大自然般的氧吧",
+          src: require("../../assets/2_2_3.png")
+        },
+        {
+          title: "绿色美化，鸟语花香的世外桃源",
+          src: require("../../assets/2_2_4.png")
+        },
+        {
+          title: "净化加湿-植物蒸腾，双向调节",
+          src: require("../../assets/2_2_5.png")
+        },
+        {
+          title: "平缓焦虑，解决自然愉悦心情",
+          src: require("../../assets/2_2_6.png")
+        }
+      ],
+      lifeDataList2: [
+        { id: 10, title: "物联网", src: require("../../assets/2_3_1.png") },
+        { id: 11, title: "大数据", src: require("../../assets/2_3_2.png") },
+        { id: 12, title: "人工智能", src: require("../../assets/2_3_3.png") },
+        { id: 13, title: "工业设计", src: require("../../assets/2_3_4.png") },
+        { id: 14, title: "品种选育", src: require("../../assets/2_3_5.png") },
+        { id: 15, title: "光学生活", src: require("../../assets/2_3_6.png") }
+      ]
     };
   },
   methods: {
@@ -154,7 +157,7 @@ export default {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin-bottom: 0.48rem;
+        // margin-bottom: 0.48rem;
         > .item {
           width: 5.89rem;
           max-width: 442px;
@@ -163,8 +166,8 @@ export default {
           cursor: pointer;
           background: rgba(246, 246, 246, 1);
           border-radius: 4px;
+          margin-bottom: 0.48rem;
           &:hover {
-            border: 1px dashed #19ab64;
             > .text {
               color: #ffffff;
               background-color: #19ab64;
@@ -249,24 +252,6 @@ export default {
             color: #ffffff;
             opacity: 1;
             transition: all 0.3s linear;
-          }
-          &:nth-child(1) {
-            background: url("../../assets/2_3_1.png") no-repeat;
-          }
-          &:nth-child(2) {
-            background: url("../../assets/2_3_2.png") no-repeat;
-          }
-          &:nth-child(3) {
-            background: url("../../assets/2_3_3.png") no-repeat;
-          }
-          &:nth-child(4) {
-            background: url("../../assets/2_3_4.png") no-repeat;
-          }
-          &:nth-child(5) {
-            background: url("../../assets/2_3_5.png") no-repeat;
-          }
-          &:nth-child(6) {
-            background: url("../../assets/2_3_6.png") no-repeat;
           }
           &:hover {
             width: 370px;

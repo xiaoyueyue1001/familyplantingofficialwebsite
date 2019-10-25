@@ -34,13 +34,13 @@
           </div>
           <div class="left">
             <div class="item">植物中心</div>
-            <div class="item">新闻动态</div>
-            <div class="item">趣味种植</div>
+            <div class="item" @click="gotoRouter('/home/news')">新闻动态</div>
+            <div class="item" @click="gotoRouter('/home/news')">趣味种植</div>
           </div>
           <div class="left middle">
             <div class="item">关于我们</div>
-            <div class="item">品牌介绍</div>
-            <div class="item">联系我们</div>
+            <div class="item" @click="gotoRouter('/home/about')">品牌介绍</div>
+            <div class="item" @click="gotoRouter('/home/about')">联系我们</div>
           </div>
           <div class="contact">
             <div class="txt">全国热线</div>
