@@ -1,6 +1,12 @@
 <template>
   <div class="progress-circle" ref="progressCircle">
-    <svg :width="diameter" :height="diameter" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      :width="diameter"
+      :height="diameter"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      v-if="show"
+    >
       <circle
         :stroke-width="barWidth"
         :stroke="backgroundColor"
@@ -19,7 +25,7 @@
         :r="diameter/2-barWidth/2"
         fill="transparent"
         :stroke-dasharray="perimeter"
-        :stroke-dashoffset="percentToCircle"
+        :stroke-dashoffset="percentToCircleCopy"
         ref="progressBar"
       />
     </svg>
@@ -41,7 +47,7 @@ export default {
     //进度[0,1]
     percent: {
       type: Number,
-      default: 0.33
+      default: 0
     },
     backgroundColor: {
       type: String,
@@ -51,6 +57,12 @@ export default {
       type: String,
       default: "#2f4453"
     }
+  },
+  data() {
+    return {
+      show: false,
+      percentToCircleCopy: Math.PI * this.diameter
+    };
   },
   computed: {
     //周长
@@ -82,6 +94,10 @@ export default {
     style.innerHTML = runkeyframes;
     // 将style样式存放到head标签
     this.$refs.progressCircle.appendChild(style);
+    this.show = true;
+    setTimeout(() => {
+      this.percentToCircleCopy = (1 - this.percent) * this.perimeter;
+    }, 2000);
   }
 };
 </script>

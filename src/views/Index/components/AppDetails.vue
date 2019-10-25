@@ -95,7 +95,8 @@
     </div>
     <div class="phone-wrap" :style="phoneWrapStyle">
       <div class="phone">
-        <img src="../../../assets/app_phone_hand.png" :style="handBgImgStyle" alt />
+        <img src="../../../assets/phone_bg.png" style="width:100%;height:100%" class="bg" alt />
+        <img src="../../../assets/app_phone_hand.png" class="hand" :style="handBgImgStyle" alt />
       </div>
       <div class="icons">
         <div class="icon"></div>
@@ -478,10 +479,10 @@ export default {
     > .phone {
       width: 26.48vh;
       height: 57.96vh;
-      background-image: url("../../../assets/app_phone_1.png");
-      background-size: 100% 100%;
+      background: url("../../../assets/phone_1_1.png") no-repeat 50% 50%;
+      background-size: 85% 72%;
       position: relative;
-      > img {
+      > img.hand {
         position: absolute;
         right: -15%;
         width: 335%;

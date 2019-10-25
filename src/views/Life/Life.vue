@@ -1,11 +1,11 @@
 <template>
   <div id="life-wrap">
-    <div class="life" v-if="!$route.params.id">
+    <div class="life">
       <div class="row1">
         <div class="title">增加氧气含量，吸收室内有毒气体</div>
         <div class="sub-title">这里是副标题，我也不知道写什么，这里是副标题</div>
       </div>
-      <div class="row2">
+      <div class="row2" v-if="!$route.params.id">
         <div class="txt">
           <div class="title">多姿多彩的时尚生活</div>
           <div class="sub-title">即采即食、美好环境，缓解个人压力，增加氧气有助于人体健康</div>
@@ -39,7 +39,7 @@
           </div>
         </div>
       </div>
-      <div class="row3">
+      <div class="row3" v-if="!$route.params.id">
         <div class="txt">
           <div class="title">科技赋能园艺，智能创造生活</div>
           <div class="sub-title">智慧的本质,是一种生活方式，轻松、有趣、省心，彩虹疏让种植从未这么简单。</div>
@@ -71,9 +71,9 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="life-details" v-else>
-      <router-view></router-view>
+      <div class="life-details" v-else>
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>
@@ -92,12 +92,12 @@ export default {
       } else {
         this.currentLife = index;
       }
-      // this.$router.push({
-      //   name: "life-details",
-      //   params: {
-      //     id: "11"
-      //   }
-      // });
+      this.$router.push({
+        name: "life-details",
+        params: {
+          id: "11"
+        }
+      });
     }
   }
 };

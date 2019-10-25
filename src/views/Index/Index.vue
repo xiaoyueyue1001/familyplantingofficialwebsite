@@ -13,16 +13,20 @@
       <p class="sub-title">拥有彩虹蔬 而更丰富一点的生活、你也想开始看看吗？</p>
       <div class="carousel-wrap">
         <el-carousel :interval="400000" @change="carouselChange">
-          <el-carousel-item v-for="item in 6" :key="item">
-            <img style="width:100%;height:100%" src="../../assets/u88.jpg" alt />
+          <el-carousel-item v-for="item in 3" :key="item">
+            <img
+              style="width:100%;height:100%"
+              v-lazy="require(`../../assets/banner2_${item}.jpg`)"
+              alt
+            />
             <div class="days" v-if="currentCarouselItem===item">
               <CircleProgressBar
-                :percent="0.1*item"
+                :percent="0.3*item"
                 :diameter="104"
                 :barWidth="2"
                 barColor="#19ab64"
               ></CircleProgressBar>
-              <div class="bg">7天</div>
+              <div class="bg">{{`${7*item}天`}}</div>
             </div>
           </el-carousel-item>
         </el-carousel>
