@@ -1,11 +1,11 @@
 <template>
   <div id="news-wrap">
-    <div class="news" v-if="!$route.params.id">
+    <div class="news">
       <div class="header">
         <div class="title">一起感受植物之美，一起享受种植的乐趣</div>
         <div class="sub-title">这里是副标题，我也不知道写什么，这里是副标题</div>
       </div>
-      <div class="news-wrap">
+      <div class="news-wrap" v-if="!$route.params.id">
         <div class="left">
           <div class="type-list">
             <div class="item" :class="{active:currentType === 0 }" @click="selectType(0)">新闻动态</div>
@@ -34,7 +34,7 @@
               <el-pagination
                 ref="pagination"
                 background
-                :page-sizes="[5, 10, 15]"
+                :page-sizes="[8, 10, 15]"
                 :page-size="5"
                 :pagerCount="5"
                 layout="prev, pager, next,jumper"
@@ -55,9 +55,9 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="news-details" v-else>
-      <router-view></router-view>
+      <div class="news-details" v-else>
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>
@@ -70,9 +70,9 @@ export default {
       currentType: 0, //当前新闻类型
       newList: [], //新闻列表
       currentPage: 1, //当前分页数
-      currentPageSize: 5, //分页大小
+      currentPageSize: 8, //分页大小
       recommendNewsList: [], //推荐文章列表
-      totalNews: 100
+      totalNews: 0
     };
   },
   created() {
@@ -92,10 +92,6 @@ export default {
       }
     },
     queryNewsList() {
-      //检验参数有效性
-      if (this.currentPage * (this.currentPage - 1) >= this.totalNews) {
-        return;
-      }
       queryNewsList({
         type: this.currentType,
         size: this.currentPageSize,

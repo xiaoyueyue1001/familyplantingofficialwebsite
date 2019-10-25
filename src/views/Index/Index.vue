@@ -1,9 +1,13 @@
 <template>
   <div id="index">
     <div class="row1">
-      <el-carousel trigger="click" height="9.6rem" :autoplay="false">
+      <el-carousel trigger="click" height="10.42rem" :autoplay="false">
         <el-carousel-item v-for="item in 4" :key="item">
-          <img style="width:100%;height:100%" src="../../assets/u001.png" alt />
+          <img style="width:100%;height:100%" src="../../assets/banner1_1.png" alt />
+          <div class="txt">
+            <div class="title">彩虹蔬</div>
+            <div class="sub-title">在家拥有菜园</div>
+          </div>
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -33,9 +37,6 @@
       </div>
     </div>
     <div class="row3">
-      <div class="img-wrap">
-        <img style="width:100%;height:100%" src="../../assets/u335.png" alt />
-      </div>
       <div class="txt">
         <div class="title">科技赋能园艺，智能创造生活</div>
         <div class="sub-title">智慧的本质,是一种生活方式，轻松、有趣、省心，彩虹疏让种植从未这么简单。</div>
@@ -49,9 +50,6 @@
         <div class="sub-title">无论是工作中还是旅行中,都可以安心</div>
       </div>
       <div class="img-wrap">
-        <div class="img-wrap">
-          <img style="width:100%;height:100%" src="../../assets/u666.png" alt />
-        </div>
         <div class="title">
           <div class="txt">让植物开口说话的APP</div>
           <div class="btn" @click="gotoApp">查看更多 ></div>
@@ -66,7 +64,7 @@
       <div class="text-wrap">
         <div class="item" v-for="(item,index) in newList" :key="index">
           <div class="img-wrap">
-            <img style="width:100%;height:100%" src="../../assets/u335.png" alt />
+            <img style="width:100%;height:100%" src="../../assets/1_news_demo.png" alt />
           </div>
           <div class="text">
             <div class="data">
@@ -119,6 +117,7 @@ export default {
 #index {
   font-size: 0.16rem;
   > .row1 {
+    position: relative;
     .el-carousel__indicator {
       &.is-active {
         .el-carousel__button {
@@ -131,6 +130,26 @@ export default {
         width: 4px;
         height: 4px;
         border-radius: 2px;
+      }
+    }
+    .txt {
+      position: absolute;
+      left: 2.45rem;
+      top: 4.8rem;
+      color: #12ac61;
+      font-family: PingFang SC;
+      > .title {
+        font-size: 1.08rem;
+        height: 1.08rem;
+        line-height: 1.08rem;
+        font-weight: 500;
+        margin-bottom: 0.45rem;
+      }
+      > .sub-title {
+        font-size: 0.72rem;
+        height: 0.72rem;
+        line-height: 0.72rem;
+        font-weight: 300;
       }
     }
   }
@@ -205,9 +224,8 @@ export default {
     height: 10rem;
     margin: 0.72rem auto 0;
     position: relative;
-    > .img-wrap {
-      height: 100%;
-    }
+    background-image: url("../../assets/1_1.png");
+    background-size: 100% 100%;
     > .txt {
       position: absolute;
       top: 19.3%;
@@ -269,6 +287,8 @@ export default {
       max-height: 1023px;
       height: 13.64rem;
       position: relative;
+      background-image: url("../../assets/1_2.png");
+      background-size: 100% 100%;
       > .title {
         position: absolute;
         left: 19.86%;
