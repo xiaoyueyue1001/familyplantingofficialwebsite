@@ -96,10 +96,19 @@
     <div class="phone-wrap" :style="phoneWrapStyle">
       <div class="phone">
         <img src="../../../assets/phone_bg.png" style="width:100%;height:100%" class="bg" alt />
-        <img src="../../../assets/app_phone_hand.png" class="hand" :style="handBgImgStyle" alt />
+        <img src="../../../assets/app_phone_hand2.png" class="hand" :style="handBgImgStyle" alt />
+        <div class="finger" :style="handBgImgStyle"></div>
       </div>
       <div class="icons">
-        <div class="icon"></div>
+        <div class="icon">
+          <img src="../../../assets/ios.png" style="width:3.33vh;height:4.08vh" alt />
+        </div>
+        <div class="icon">
+          <img src="../../../assets/android.png" style="width:4.17vh;5vh" alt />
+        </div>
+        <div class="icon">
+          <img src="../../../assets/download_QRCode.png" style="width:5.65vh;height:5.65vh" alt />
+        </div>
       </div>
     </div>
   </div>
@@ -477,18 +486,55 @@ export default {
     align-items: center;
     justify-content: space-between;
     > .phone {
+      margin-top: 15vh;
       width: 26.48vh;
       height: 57.96vh;
       background: url("../../../assets/phone_1_1.png") no-repeat 50% 50%;
       background-size: 85% 72%;
       position: relative;
+      > img.bg {
+        position: absolute;
+        z-index: 3;
+      }
       > img.hand {
         position: absolute;
-        right: -15%;
-        width: 335%;
-        height: 136%;
-        top: 7%;
+        // right: -15%;
+        // width: 335%;
+        // height: 136%;
+        // top: 7%;
+        right: -8%;
+        width: 302%;
+        height: 115%;
+        top: 5%;
         transition: all 0.5s;
+      }
+      > .finger {
+        background-image: url("../../../assets/app_phone_hand2.png");
+        background-position: 100% -27%;
+        background-size: 1200% 116%;
+        position: absolute;
+        right: -10%;
+        top: 0;
+        width: 30%;
+        height: 100%;
+        z-index: 4;
+        transition: all 0.5s;
+      }
+    }
+    > .icons {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2vh;
+      > .icon {
+        width: 9.72vh;
+        height: 9.72vh;
+        background-color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 3;
       }
     }
   }
