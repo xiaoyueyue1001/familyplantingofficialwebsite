@@ -94,7 +94,7 @@
       <div class="circle circle2"></div>
     </div>
     <div class="phone-wrap" :style="phoneWrapStyle">
-      <div class="phone">
+      <div class="phone" :style="phoneStyle">
         <img src="../../../assets/phone_bg.png" style="width:100%;height:100%" class="bg" alt />
         <img src="../../../assets/app_phone_hand2.png" class="hand" :style="handBgImgStyle" alt />
         <div class="finger" :style="handBgImgStyle"></div>
@@ -187,6 +187,49 @@ export default {
           top: "-50%"
         };
       }
+    },
+    phoneStyle() {
+      if (this.currentPage === 0) {
+        return {
+          backgroundImage: `url(${require("../../../assets/app_details/phone_1_1.png")})`
+        };
+      }
+      if (this.currentPage === 1) {
+        return {
+          animation: "phoneBg1 4s linear 1 0.5s",
+          backgroundImage: `url(${require("../../../assets/app_details/phone_1_3.png")})`
+        };
+      }
+      if (this.currentPage === 2) {
+        return {
+          animation: "phoneBg2 12s linear 1",
+          backgroundImage: `url(${require("../../../assets/app_details/phone_2_7.png")})`
+        };
+      }
+      if (this.currentPage === 3) {
+        return {
+          backgroundImage: `url(${require("../../../assets/app_details/phone_3_1.png")})`,
+          overflow: "visible"
+        };
+      }
+      if (this.currentPage === 4) {
+        return {
+          animation: "phoneBg4 8S linear 1",
+          backgroundImage: `url(${require("../../../assets/app_details/phone_4_1.png")})`
+        };
+      }
+      if (this.currentPage === 5) {
+        return {
+          animation: "phoneBg5 4s linear 1",
+          backgroundImage: `url(${require("../../../assets/app_details/phone_5_1.png")})`
+        };
+      }
+      if (this.currentPage === 5) {
+        return {
+          backgroundImage: `url(${require("../../../assets/app_details/phone_5_1.png")})`
+        };
+      }
+      return {};
     },
     handBgImgStyle() {
       return {
@@ -489,19 +532,18 @@ export default {
       margin-top: 15vh;
       width: 26.48vh;
       height: 57.96vh;
-      background: url("../../../assets/phone_1_1.png") no-repeat 50% 50%;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
       background-size: 85% 72%;
       position: relative;
+      overflow: hidden;
+      border-radius: 5vh;
       > img.bg {
         position: absolute;
         z-index: 3;
       }
       > img.hand {
         position: absolute;
-        // right: -15%;
-        // width: 335%;
-        // height: 136%;
-        // top: 7%;
         right: -8%;
         width: 302%;
         height: 115%;
@@ -537,6 +579,114 @@ export default {
         z-index: 3;
       }
     }
+  }
+}
+</style>
+<style lang="less">
+@keyframes phoneBg1 {
+  0% {
+    background-image: url("../../../assets/app_details/phone_1_1.png");
+  }
+  50% {
+    background-image: url("../../../assets/app_details/phone_1_2.png");
+  }
+  100% {
+    background-image: url("../../../assets/app_details/phone_1_3.png");
+  }
+}
+@keyframes phoneBg2 {
+  0% {
+    background-image: url("../../../assets/app_details/phone_2_1.png");
+  }
+  16.67% {
+    background-image: url("../../../assets/app_details/phone_2_2.png");
+  }
+  33.33% {
+    background-image: url("../../../assets/app_details/phone_2_3.png");
+  }
+  50% {
+    background-image: url("../../../assets/app_details/phone_2_4.png");
+  }
+  66.67% {
+    background-image: url("../../../assets/app_details/phone_2_5.png");
+  }
+  83.33% {
+    background-image: url("../../../assets/app_details/phone_2_6.png");
+  }
+  100% {
+    background-image: url("../../../assets/app_details/phone_2_7.png");
+  }
+}
+@keyframes phoneBg4 {
+  0% {
+    background-image: url("../../../assets/app_details/phone_4_1.png");
+    background-position: 50% 50%;
+    background-size: 85% 72%;
+  }
+
+  20% {
+    background-image: url("../../../assets/app_details/phone_4_1.png");
+    background-position: 50% 50%;
+    background-size: 85% 72%;
+  }
+
+  40% {
+    background-image: url("../../../assets/app_details/phone_4_2.png");
+    background-position: 50% 50%;
+    background-size: 85% 72%;
+  }
+  60% {
+    background-image: url("../../../assets/app_details/phone_4_3.png");
+    background-position: 50% 50%;
+    background-size: 85% 72%;
+  }
+  60.1% {
+    background-image: url("../../../assets/app_details/phone_4_4.png");
+    background-size: 85% 100%;
+    background-position: 50% 8vh;
+  }
+  80% {
+    background-image: url("../../../assets/app_details/phone_4_4.png");
+    background-size: 85% 100%;
+    background-position: 50% -8vh;
+  }
+
+  100% {
+    background-image: url("../../../assets/app_details/phone_4_4.png");
+    background-size: 85% 100%;
+    background-position: 50% -8vh;
+  }
+}
+@keyframes phoneBg5 {
+  0% {
+    background-image: url("../../../assets/app_details/phone_5_1.png");
+    background-position: 50% 50%;
+    background-size: 85% 72%;
+  }
+  30% {
+    background-image: url("../../../assets/app_details/phone_5_1.png");
+    background-position: 50% 50%;
+    background-size: 85% 71%;
+  }
+  31% {
+    background-image: url("../../../assets/app_details/phone_5_2.png");
+    background-size: 85% 100%;
+    background-position: 50% 8vh;
+  }
+  70% {
+    background-image: url("../../../assets/app_details/phone_5_2.png");
+    background-size: 85% 100%;
+    background-position: 50% 8vh;
+  }
+  80% {
+    background-image: url("../../../assets/app_details/phone_5_2.png");
+    background-size: 85% 100%;
+    background-position: 50% -8vh;
+  }
+  100% {
+    background-image: url("../../../assets/app_details/phone_5_2.png");
+    background-size: 85% 100%;
+    background-position: 50% -8vh;
   }
 }
 </style>
